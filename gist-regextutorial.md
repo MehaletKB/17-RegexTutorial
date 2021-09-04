@@ -87,62 +87,64 @@ In our example every time there is a ``\`` before a character, it means that the
 Let's now apply all our knowledge to interpret our regex!
 <pre><code>/^(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=([a-zA-Z0-9_]+)|youtu\.be\/([a-zA-Z\d_]+))(?:&.*)?$/gm</code></pre>
 
-
-http matches the characters http literally (case sensitive)<br>
-`s` matches the character s literally (case sensitive)<br>
-`:` matches the character : literally (case sensitive)<br>
-`\/` matches the character / literally (case sensitive)<br>
-`\/` matches the character / literally (case sensitive)<br>
+**Non-captured group** ``(?:https?:\/\/)``:<br>
+`http` matches the characters http literally<br>
+`s` matches the character s literally<br>
+`:` matches the character : literally<br>
+`\/` matches the character / literally<br>
+`\/` matches the character / literally<br>
 <br>
-Non-capturing group ``(?:www\.)?``<br>
-`?` matches the previous token between zero and one times, as many times as possible, giving back as needed (greedy)<br>
-`www` matches the characters www literally (case sensitive)<br>
-`\.` matches the character . literally (case sensitive)<br>
+
+**Non-capturing group** ``(?:www\.)?``:<br>
+`?` matches the previous token between zero and one times, as many times as possible, giving back as needed <br>
+`www` matches the characters www literally<br>
+`\.` matches the character . literally<br>
 <br>
-**Non-capturing group** ``(?:youtube\.com\/watch\?v=([a-zA-Z0-9_]+)|youtu\.be\/([a-zA-Z\d_]+))``<br>
 
-1st Alternative ``youtube\.com\/watch\?v=([a-zA-Z0-9_]+)``<br>
-`youtube` matches the characters youtube literally (case sensitive)<br>
-`\.` matches the character .literally (case sensitive)<br>
-`com` matches the characters com literally (case sensitive)<br>
-`\/` matches the character /literally (case sensitive)<br>
-`watch` matches the characters watch literally (case sensitive)<br>
-`\?` matches the character ? literally (case sensitive)<br>
-`v=` matches the characters v= literally (case sensitive)<br>
+**Non-capturing group** ``(?:youtube\.com\/watch\?v=([a-zA-Z0-9_]+)|youtu\.be\/([a-zA-Z\d_]+))``:<br>
 
-1st Capturing Group ``([a-zA-Z0-9_]+)``
-Match a single character present in the list below [a-zA-Z0-9_]<br>
-``+`` matches the previous token between one and unlimited times, as many times as possible, giving back as needed (greedy)<br>
-`a-z` matches a single character in the range between a and z (case sensitive)<br>
-`A-Z` matches a single character in the range between A and Z (case sensitive)<br>
-`0-9` matches a single character in the range between 0 and 9 (case sensitive)<br>
-`_` matches the character _ literally (case sensitive)<br>
+1st Alternative ``youtube\.com\/watch\?v=([a-zA-Z0-9_]+)``:<br>
+`youtube` matches the characters youtube literally<br>
+`\.` matches the character .literally<br>
+`com` matches the characters com literally<br>
+`\/` matches the character /literally<br>
+`watch` matches the characters watch literally<br>
+`\?` matches the character ? literally<br>
+`v=` matches the characters v= literally<br>
 
-2nd Alternative ``youtu\.be\/([a-zA-Z\d_]+)``<br>
-`youtu` matches the characters youtu literally (case sensitive)<br>
-`\.` matches the character . literally (case sensitive)<br>
-`be` matches the characters be literally (case sensitive)<br>
-`\/` matches the character / literally (case sensitive)<br>
+1st Capturing Group ``([a-zA-Z0-9_]+)``:<br>
+``+`` matches the previous token between one and unlimited times, as many times as possible, giving back as needed <br>
+`a-z` matches a single character in the range between a and z<br>
+`A-Z` matches a single character in the range between A and Z<br>
+`0-9` matches a single character in the range between 0 and 9<br>
+`_` matches the character _ literally<br>
 
-2nd Capturing Group ([a-zA-Z\d_]+)<br>
-Match a single character present in the list below [a-zA-Z\d_]
-`+` matches the previous token between one and unlimited times, as many times as possible, giving back as needed (greedy)<br>
-`a-z` matches a single character in the range between a and z (case sensitive)<br>
-`A-Z` matches a single character in the range between A and Z (case sensitive)<br>
+2nd Alternative ``youtu\.be\/([a-zA-Z\d_]+)``:<br>
+`youtu` matches the characters youtu literally<br>
+`\.` matches the character . literally<br>
+`be` matches the characters be literally<br>
+`\/` matches the character / literally<br>
+
+2nd Capturing Group ``([a-zA-Z\d_]+)``:<br>
+`+` matches the previous token between one and unlimited times, as many times as possible, giving back as needed <br>
+`a-z` matches a single character in the range between a and z<br>
+`A-Z` matches a single character in the range between A and Z<br>
 `\d` matches any numerical digit<br>
-`_` matches the character _ literally (case sensitive)<br>
+`_` matches the character _ literally<br>
+<br>
 
-**Non-capturing group** ``(?:&.*)?``<br>
-`?` matches the previous token between zero and one times, as many times as possible, giving back as needed (greedy)<br>
-`&` matches the character & literally (case sensitive)<br>
-`.` matches any character (except for line terminators - `\n`, `\r` etc.)
-`*` matches the previous token between zero and unlimited times, as many times as possible, giving back as needed (greedy)<br>
+**Non-capturing group** ``(?:&.*)?``:<br>
+`?` matches the previous token between zero and one times, as many times as possible, giving back as needed <br>
+`&` matches the character & literally<br>
+`.` matches any character (except for line terminators - `\n`, `\r` etc.)<br>
+`*` matches the previous token between zero and unlimited times, as many times as possible, giving back as needed <br>
 `$` asserts position at the end of a line<br>
+<br>
 
-Global pattern flags<br>
+**Global pattern flags**:<br>
 `g` modifier: global. All matches (don't return after first match)<br>
 `m` modifier: multi line. Causes `^` and `$` to match the begin/end of each line (not only begin/end of string)<br>
-<br>
+
 ## Author
 
 Mehalet KesateBirhan <br>
